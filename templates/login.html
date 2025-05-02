@@ -1,83 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login Screen</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 90%;
-            max-width: 400px;
-        }
+    html, body {
+      height: 100%;
+      font-family: "Inter", Helvetica, sans-serif;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        input[type="text"], input[type="password"] {
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            width: 80%;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
+    .login-container {
+      width: 100%;
+      max-width: 360px;
+      padding: 20px;
+      text-align: center;
+    }
 
-        button {
-            padding: 10px 20px;
-            border: none;
-            background-color: #007aff;
-            color: white;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+    .face {
+      position: relative;
+      width: 240px;
+      height: 70px;
+      margin: 0 auto 40px;
+    }
 
-        p {
-            color: red;
-            font-size: 14px;
-            display: none;
-        }
-    </style>
+    .eye {
+      width: 70px;
+      height: 70px;
+      background: black;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .mouth {
+      position: absolute;
+      top: 30px;
+      left: 70px;
+      width: 100px;
+      height: 10px;
+      background: black;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ededed;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #cd0707;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #a50505;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Login</h1>
-        <input type="text" id="username" placeholder="Username" required>
-        <br>
-        <input type="password" id="password" placeholder="Password" required>
-        <br>
-        <button onclick="checkCredentials()">Log In</button>
-        <p id="error-message">Invalid username or password. Please try again.</p>
+  <div class="login-container">
+    <div class="face">
+      <div class="eye"></div>
+      <div class="eye"></div>
+      <div class="mouth"></div>
     </div>
+    <input type="text" id="username" placeholder="Username" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Engage System</button>
+  </div>
 
-    <script>
-        function checkCredentials() {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            const errorMessage = document.getElementById("error-message");
+  <script>
+    function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
 
-            // Simple username and password check
-            if (username === "user" && password === "password") {
-                window.location.href = "/welcome";  // Proceed to the next page
-            } else {
-                errorMessage.style.display = "block";  // Show error message
-            }
-        }
-    </script>
+      if (username === "admin" && password === "etabetas123") {
+        window.location.href = "/welcome";
+      } else {
+        alert("Access denied. Invalid credentials.");
+      }
+    }
+  </script>
 </body>
 </html>

@@ -10,13 +10,17 @@ def login():
 def welcome():
     return render_template("welcome.html")
 
-@app.route("/profile")
-def profile():
-    return render_template("profile.html")
+@app.route("/control")
+def control():
+    return render_template("control.html")
 
-@app.route("/settings")
-def settings():
-    return render_template("settings.html")
+@app.route("/error")
+def error():
+    return render_template("error.html")
+
+@app.route("/supplies")
+def supplies():
+    return render_template("supplies.html")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
