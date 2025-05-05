@@ -155,5 +155,23 @@
     }
   </script>
 
+  <script>
+    function sendDirection(dir) {
+      fetch('/move', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `direction=${dir}`
+      });
+    }
+  
+    document.querySelector('.circle.center').addEventListener('mousedown', () => sendDirection('forward'));
+    document.querySelector('.circle.left').addEventListener('mousedown', () => sendDirection('left'));
+    document.querySelector('.circle.right').addEventListener('mousedown', () => sendDirection('right'));
+    document.querySelector('.circle.bottom').addEventListener('mousedown', () => sendDirection('backward'));
+    document.querySelectorAll('.circle').forEach(c => c.addEventListener('mouseup', () => sendDirection('stop')));
+  </script>
+  
 </body>
 </html>
